@@ -48,10 +48,13 @@ var confirmSpecialCharacters=confirm("would you like to add special charcters to
     confirmlowerCase===false&&
     confirmupperCase===false){
       alert("You have to choose at least one type of chacters to generate your password")
-      window.reload()
+      window.location.reload()
     }
+    for(let i=0; i<pwLength;i++){
+      result+=choices[Math.floor(Math.random()*choices.length)]
+    }
+    return result
 }
-
 
 // Write password to the #password input
 function writePassword() {
