@@ -27,7 +27,31 @@ function generatePassword(){
   while(pwLength<8||pwLength>128||pwLength===""||isNaN(pwLength)){
     pwLength=prompt("Please choose a password length between 8-128 characters")
   }
+  var confirmNumbers=confirm("would you like to add numbers to your password?")
+  if  (confirmNumbers===true){
+choices=choices.concat(numbers)
 }
+var confirmSpecialCharacters=confirm("would you like to add special charcters to your password?")
+  if (confirmSpecialCharacters===true) {
+    choices=choices.concat(specialCharcters)
+    }
+    var confirmlowerCase=confirm("would you like to add lower case to your password")
+    if(confirmlowerCase===true){
+      choices=choices.concat(lowerCase)
+ }
+ var confirmupperCase=confirm("would you like to add upper case to your password")
+ if(confirmupperCase===true){
+  choices=choices.concat(upperCase)}
+  
+  if(confirmSpecialCharacters===false&&
+    confirmNumbers===false&&
+    confirmlowerCase===false&&
+    confirmupperCase===false){
+      alert("You have to choose at least one type of chacters to generate your password")
+      window.reload()
+    }
+}
+
 
 // Write password to the #password input
 function writePassword() {
